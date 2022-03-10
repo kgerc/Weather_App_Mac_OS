@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "6A952665-143A-4E74-9063-F2DC33230FC8"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1E8E480E-D51B-41B0-B0F2-B98F197F2618"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather_App/Views/WelcomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "WelcomeView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "1E8E480E-D51B-41B0-B0F2-B98F197F2618 - 17e2c8f4fcc34f10"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_App.WelcomeView.init(locationManager: SwiftUI.EnvironmentObject&lt;Weather_App.LocationManager&gt;) -&gt; Weather_App.WelcomeView"
+                  moduleName = "Weather_App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rms/Desktop/czwartek/Weather_App/Weather_App/Views/WelcomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "10">
+               </Location>
+               <Location
+                  uuid = "1E8E480E-D51B-41B0-B0F2-B98F197F2618 - 4d9c7adbdbdcedd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_App.WelcomeView.init() -&gt; Weather_App.WelcomeView"
+                  moduleName = "Weather_App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rms/Desktop/czwartek/Weather_App/Weather_App/Views/WelcomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
