@@ -7,21 +7,43 @@
 
 import SwiftUI
 
+
+
+
+
 struct ContentView: View {
     @StateObject var locationManager = LocationManager()
     @StateObject var navigationManager = NavigationManager()
     var weatherManager = WeatherManager()
     @State var weather: ResponseBody?
 
+    @State var chosenCity: String = ""
+    
+    
     
     var body: some View {
         VStack {
+            
             if navigationManager._chooseByName
             {
                 SearchView()
                     .environmentObject(navigationManager)
+                
             }
             else {
+                if navigationManager._chosenByName
+                {
+                    LoadingView()
+                    .task {
+                        do{
+                            weather = try await weatherManager.getWeatherByName(cityName: navigationManager._chosenCity)
+                            
+                        }catch{
+                           
+                        }
+                        navigationManager._chosenByName = false
+                    }
+                }
                 if let location = locationManager.location {
                     if let weather = weather {
                         WeatherView(weather: weather)
