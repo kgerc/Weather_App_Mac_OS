@@ -33,4 +33,5 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         print("Error loading location", error)
         isLoading = false
     }
+    
 }

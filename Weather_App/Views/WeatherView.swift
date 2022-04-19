@@ -8,19 +8,42 @@
 import SwiftUI
 
 struct WeatherView: View {
-    // Replace YOUR_API_KEY in WeatherManager with your own API key for the app to work
+    @EnvironmentObject var navigationManager: NavigationManager
     var weather: ResponseBody
     
     var body: some View {
         ZStack(alignment: .leading) {
             VStack {
-                VStack(alignment: .leading, spacing: 5) {
+                HStack( spacing: 5) {
+                    VStack{
                     Text(weather.name)
                         .bold()
                         .font(.title)
                     
                     Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
                         .fontWeight(.light)
+                    }
+                    Spacer()
+                    HStack{
+                        Button(action:{
+                            navigationManager.chooseByName()
+                        }) {
+                            Image(systemName: "magnifyingglass")
+                                .font(.title2)
+                                .frame(width: 20, height: 20)
+                                .padding()
+                                .background(Color(hue: 1.0, saturation: 0.0, brightness: 0.888))
+                                .cornerRadius(50)
+                                .foregroundColor(Color(hue: 0.678, saturation: 0.845, brightness: 0.406))
+                        }
+                    Image(systemName: "mappin.and.ellipse")
+                        .font(.title2)
+                        .frame(width: 20, height: 20)
+                        .padding()
+                        .background(Color(hue: 1.0, saturation: 0.0, brightness: 0.888))
+                        .cornerRadius(50)
+                        .foregroundColor(Color(hue: 0.678, saturation: 0.845, brightness: 0.406))
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -79,7 +102,7 @@ struct WeatherView: View {
                     HStack {
                         WeatherRow(logo: "wind", name: "Wind speed", value: (weather.wind.speed.roundDouble() + " m/s"))
                         Spacer()
-                        WeatherRow(logo: "humidity", name: "Humidity", value: "\(weather.main.humidity.roundDouble())%")
+                        WeatherRow(logo: "humidity.fill", name: "Humidity", value: "\(weather.main.humidity.roundDouble())%")
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -99,5 +122,6 @@ struct WeatherView: View {
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherView(weather: previewWeather)
+.previewInterfaceOrientation(.portraitUpsideDown)
     }
 }
