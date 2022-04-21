@@ -10,6 +10,7 @@
 		9D002041280E070E00321F0D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D002040280E070E00321F0D /* SearchView.swift */; };
 		9D002043280E2D4600321F0D /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D002042280E2D4600321F0D /* NavigationManager.swift */; };
 		9D4A5E4D281157060091272A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4A5E4C281157060091272A /* MapView.swift */; };
+		9D4A5E502811EA910091272A /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = 9D4A5E4F2811EA910091272A /* SimpleToast */; };
 		D846203527DA3D1E00FDCE80 /* Weather_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D846203427DA3D1E00FDCE80 /* Weather_AppApp.swift */; };
 		D846203727DA3D1E00FDCE80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D846203627DA3D1E00FDCE80 /* ContentView.swift */; };
 		D846203927DA3D2500FDCE80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D846203827DA3D2500FDCE80 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4A5E502811EA910091272A /* SimpleToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = Weather_App;
+			packageProductDependencies = (
+				9D4A5E4F2811EA910091272A /* SimpleToast */,
+			);
 			productName = Weather_App;
 			productReference = D846203127DA3D1E00FDCE80 /* Weather_App.app */;
 			productType = "com.apple.product-type.application";
@@ -171,6 +176,9 @@
 				Base,
 			);
 			mainGroup = D846202827DA3D1E00FDCE80;
+			packageReferences = (
+				9D4A5E4E2811EA900091272A /* XCRemoteSwiftPackageReference "SimpleToast" */,
+			);
 			productRefGroup = D846203227DA3D1E00FDCE80 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -413,6 +421,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9D4A5E4E2811EA900091272A /* XCRemoteSwiftPackageReference "SimpleToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sanzaru/SimpleToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9D4A5E4F2811EA910091272A /* SimpleToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D4A5E4E2811EA900091272A /* XCRemoteSwiftPackageReference "SimpleToast" */;
+			productName = SimpleToast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D846202927DA3D1E00FDCE80 /* Project object */;
 }

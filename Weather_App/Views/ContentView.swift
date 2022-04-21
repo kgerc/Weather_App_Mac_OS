@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
-
+import SimpleToast
 
 
 
 
 struct ContentView: View {
+    @State private var showToast = false
+    private let toastOptions = SimpleToastOptions(
+        alignment: .bottom,
+        hideAfter: 2,
+        backdrop: Color.black.opacity(0.1),
+        animation: .default,
+        modifierType: .skew
+    )
+    
     @StateObject var locationManager = LocationManager()
     @StateObject var navigationManager = NavigationManager()
     var weatherManager = WeatherManager()
@@ -45,7 +54,7 @@ struct ContentView: View {
                             weather = try await weatherManager.getWeatherByName(cityName: navigationManager._chosenCity)
                             
                         }catch{
-                           print("wywalil sie na chosenByName")
+                            showToast.toggle()
                         }
                         navigationManager._chosenByName = false
                         
@@ -97,6 +106,17 @@ struct ContentView: View {
             
         }.background(Color(hue: 0.678, saturation: 0.845, brightness: 0.406))
             .preferredColorScheme(.dark)
+            .simpleToast(isPresented: $showToast, options: toastOptions, onDismiss: {
+                
+            }){
+                HStack{
+                    Text("Unable to find this city")
+                }
+                .padding(20)
+                .background(Color(hue: 0.678, saturation: 0.845, brightness: 0.406))
+                .foregroundColor(Color.white)
+                .cornerRadius(15)
+            }
     }
 }
 
