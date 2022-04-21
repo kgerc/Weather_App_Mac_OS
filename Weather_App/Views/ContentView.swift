@@ -30,6 +30,12 @@ struct ContentView: View {
                     .environmentObject(navigationManager)
                 
             }
+            else if navigationManager._chooseByMap
+            {
+                MapView()
+                    .environmentObject(navigationManager)
+                    .environmentObject(locationManager)
+            }
             else {
                 if navigationManager._chosenByName
                 {
@@ -39,9 +45,25 @@ struct ContentView: View {
                             weather = try await weatherManager.getWeatherByName(cityName: navigationManager._chosenCity)
                             
                         }catch{
-                           
+                           print("wywalil sie na chosenByName")
                         }
                         navigationManager._chosenByName = false
+                        
+                    }
+                }
+                if navigationManager._chosenByMap
+                {
+                    LoadingView()
+                    .task {
+                        do{
+                            weather = try await weatherManager.getCurrentWeather(
+                                latitude: navigationManager._chosenCoords.latitude,
+                                lonigtude: navigationManager._chosenCoords.longitude)
+    
+                        }catch{
+                            print("wywalil sie na chosenByMap")
+                        }
+                        navigationManager._chosenByMap = false
                     }
                 }
                 if let location = locationManager.location {

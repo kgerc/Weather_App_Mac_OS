@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class NavigationManager: NSObject, ObservableObject {
     
@@ -17,6 +18,10 @@ class NavigationManager: NSObject, ObservableObject {
     
     @Published var _chosenCity: String = ""
     @Published var _chosenByName = false
+    
+    @Published var _chosenCoords: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    @Published var _chosenByMap = false
+    
     override init() {
         super.init()
     }
@@ -26,6 +31,13 @@ class NavigationManager: NSObject, ObservableObject {
         _chooseByMap = false
         _mainScreen = false
     }
+    
+    func chooseByMap(){
+        _chooseByName = false
+        _chooseByMap = true
+        _mainScreen = false
+    }
+    
     func mainScreen(){
         _chooseByName = false
         _chooseByMap = false
@@ -36,6 +48,13 @@ class NavigationManager: NSObject, ObservableObject {
     {
         _chosenCity = cityName
         _chosenByName = true
+        mainScreen()
+    }
+    
+    func setByMap(coords: CLLocationCoordinate2D)
+    {
+        _chosenCoords = coords
+        _chosenByMap = true
         mainScreen()
     }
     

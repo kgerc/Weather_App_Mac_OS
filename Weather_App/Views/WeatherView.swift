@@ -36,13 +36,17 @@ struct WeatherView: View {
                                 .cornerRadius(50)
                                 .foregroundColor(Color(hue: 0.678, saturation: 0.845, brightness: 0.406))
                         }
-                    Image(systemName: "mappin.and.ellipse")
-                        .font(.title2)
-                        .frame(width: 20, height: 20)
-                        .padding()
-                        .background(Color(hue: 1.0, saturation: 0.0, brightness: 0.888))
-                        .cornerRadius(50)
-                        .foregroundColor(Color(hue: 0.678, saturation: 0.845, brightness: 0.406))
+                        Button(action:{
+                            navigationManager.chooseByMap()
+                        }) {
+                        Image(systemName: "mappin.and.ellipse")
+                            .font(.title2)
+                            .frame(width: 20, height: 20)
+                            .padding()
+                            .background(Color(hue: 1.0, saturation: 0.0, brightness: 0.888))
+                            .cornerRadius(50)
+                            .foregroundColor(Color(hue: 0.678, saturation: 0.845, brightness: 0.406))
+                        }
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
